@@ -1,3 +1,4 @@
 module.exports = {
-  Router: require("./index.routes")
+  Router: require("./index.routes"),
+  UserRoutes: require("./user.routes"),
 };

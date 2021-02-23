@@ -8,6 +8,7 @@ const {
 } = require("../config");
 
 const db = new Sequelize(database_name, database_user, database_password, {
+  query: { raw: true },
   host: database_host,
   dialect: database_dialect,
   logging: false,

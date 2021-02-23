@@ -14,24 +14,22 @@ class UserService {
     if (!email || !password)
       return httpError(400, "The username and password is required");
 
-    const emailExists = await this.userRepository.getUserByEmail(email);
+    const userExists = await this.userRepository.getUserByEmail(email);
 
-    if (!emailExists) return httpError(401, "The email does not exist");
+    if (!userExists) return httpError(401, "The email does not exist");
 
-    const { dataValues: userDB } = emailExists;
-
-    const validPassword = comparePasswords(password, userDB.password);
+    const validPassword = comparePasswords(password, userExists.password);
 
     if (!validPassword) return httpError(401, "Password is incorrect");
 
-    const token = generateToken(userDB.id);
+    const token = generateToken(userExists.id);
 
     return {
       user: {
-        id: userDB.id,
-        firstname: userDB.firstname,
-        lastname: userDB.lastname,
-        email: userDB.email,
+        id: userExists.id,
+        firstname: userExists.firstname,
+        lastname: userExists.lastname,
+        email: userExists.email,
       },
       token,
     };

@@ -1,10 +1,9 @@
-class UserRepository {
-  constructor({ UserModel }) {
-    this.userModel = UserModel;
-  }
+const BaseRepository = require("./base.repository");
 
-  createUser(user) {
-    return this.userModel.create(user);
+class UserRepository extends BaseRepository {
+  constructor({ UserModel }) {
+    super(UserModel);
+    this.userModel = UserModel;
   }
 
   getUserByEmail(email) {

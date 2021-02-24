@@ -1,6 +1,6 @@
 let _authService = null;
 
-class UserController {
+class AuthController {
   constructor({ AuthService }) {
     _authService = AuthService;
   }
@@ -30,4 +30,4 @@ class UserController {
   }
 }
 
-module.exports = UserController;
+module.exports = AuthController;

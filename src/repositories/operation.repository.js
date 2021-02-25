@@ -5,10 +5,6 @@ class OperationRepository extends BaseRepository {
     super(OperationModel);
     this.operationModel = OperationModel;
   }
-
-  getOperationsByType(typeID) {
-    return this.operationModel.findAll({ where: { typeID: typeID } });
-  }
   
   getOperationsByUserId(userID) {
     return this.operationModel.findAll({ where: { userID: userID } });

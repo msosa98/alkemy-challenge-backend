@@ -6,11 +6,7 @@ class OperationService extends BaseService {
     this.operationRepository = OperationRepository;
     this.userService = UserService;
   }
-
-  getOperationsByType(typeID) {
-    return this.operationRepository.getOperationsByType(typeID);
-  }
-
+  
   getOperationsByUserId(userID) {
     return this.operationRepository.getOperationsByUserId(userID);
   }

@@ -4,19 +4,7 @@ class OperationController {
   constructor({ OperationService }) {
     _operationService = OperationService;
   }
-
-  async getOperationsByType(req, res) {
-    try {
-      const typeID = req.params.id;
-      const operations = await _operationService.getOperationsByType(typeID);
-      res.status(200).send(operations);
-    } catch (e) {
-      res.status(e.status).json({
-        error: e.message,
-      });
-    }
-  }
-
+  
   async getOperationsByUserId(req, res) {
     try {
       const userID = req.params.id;

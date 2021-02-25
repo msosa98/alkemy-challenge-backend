@@ -3,12 +3,12 @@ class BaseService {
     this.repository = repository;
   }
 
-  findAll() {
-    return this.repository.findAll();
+  getAll() {
+    return this.repository.getAll();
   }
 
-  findByPk(id) {
-    return this.repository.findByPk(id);
+  getById(id) {
+    return this.repository.getById(id);
   }
 
   create(repository) {

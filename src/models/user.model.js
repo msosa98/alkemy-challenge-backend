@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const db = require("../database");
 
 const UserModel = db.define(
-  "users",
+  "User",
   {
     id: {
       primaryKey: true,
@@ -24,13 +24,26 @@ const UserModel = db.define(
       allowNull: false,
     },
     password: {
-      type: DataTypes.STRING(75),
+      type: DataTypes.STRING(60),
+      allowNull: false,
+    },
+    balance: {
+      type: DataTypes.DECIMAL,
+      defaultValue: 0,
       allowNull: false,
     },
   },
   {
     timestamps: false,
+    tableName: "users"
   }
 );
+
+UserModel.prototype.toJSON = function () {
+  var values = Object.assign({}, this.get());
+
+  delete values.password;
+  return values;
+};
 
 module.exports = UserModel;

@@ -7,8 +7,8 @@ class Server {
   }
 
   start() {
-    this.app.listen(this.config.port, () => {
-      console.log(`Server on port ${this.config.port}`);
+    this.app.listen(this.config.PORT, () => {
+      console.log(`Server on port ${this.config.PORT}`);
     });
   }
 }

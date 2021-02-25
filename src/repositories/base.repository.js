@@ -3,11 +3,11 @@ class BaseRepository {
     this.model = model;
   }
 
-  findAll() {
+  get() {
     return this.model.findAll();
   }
 
-  findByPk(id) {
+  getById(id) {
     return this.model.findByPk(id);
   }
 

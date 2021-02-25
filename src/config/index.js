@@ -1,9 +1,9 @@
 module.exports = {
-  database_host: process.env.DATABASE_HOST || "localhost",
-  database_name: process.env.DATABASE_NAME || "alkemy",
-  database_user: process.env.DATABASE_USER || "root",
-  database_password: process.env.DATABASE_PASSWORD || "",
-  database_dialect: process.env.DATABASE_DIALECT || "mysql",
-  port: process.env.PORT || 4000,
-  jwt_secret: process.env.JWT_SECRET || "my_jwt_secret",
+  DATABASE_HOST: process.env.DATABASE_HOST || "localhost",
+  DATABASE_NAME: process.env.DATABASE_NAME || "alkemy",
+  DATABASE_USER: process.env.DATABASE_USER || "root",
+  DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || "",
+  DATABASE_DIALECT: process.env.DATABASE_DIALECT || "mysql",
+  PORT: process.env.PORT || 4000,
+  JWT_SECRET: process.env.JWT_SECRET || "my_jwt_secret",
 };

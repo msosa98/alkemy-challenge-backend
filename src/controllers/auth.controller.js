@@ -1,14 +1,14 @@
-let authService = null;
+let _authService = null;
 
 class UserController {
   constructor({ AuthService }) {
-    authService = AuthService;
+    _authService = AuthService;
   }
 
   async signIn(req, res) {
     try {
       const { email, password } = req.body;
-      const creds = await authService.signIn(email, password);
+      const creds = await _authService.signIn(email, password);
       res.status(200).send(creds);
     } catch (e) {
       res.status(e.status).json({
@@ -20,7 +20,7 @@ class UserController {
   async signUp(req, res) {
     try {
       const user = req.body;
-      const registeredUser = await authService.signUp(user);
+      const registeredUser = await _authService.signUp(user);
       res.status(201).send(registeredUser);
     } catch (e) {
       res.status(e.status).json({

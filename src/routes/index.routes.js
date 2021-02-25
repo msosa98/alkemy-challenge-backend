@@ -1,13 +1,13 @@
-const express = require("express")
+const express = require("express");
 const cors = require("cors");
 
-module.exports = ({ AuthRoutes, CategoryRoutes }) => {
+module.exports = ({ AuthRoutes, OperationRoutes }) => {
   const router = express.Router();
 
   router.use(cors());
   router.use(express.json());
   router.use(AuthRoutes);
-  router.use(CategoryRoutes);
+  router.use(OperationRoutes);
 
   return router;
 };

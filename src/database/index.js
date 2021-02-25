@@ -1,15 +1,15 @@
 const { Sequelize } = require("sequelize");
 const {
-  database_name,
-  database_user,
-  database_password,
-  database_host,
-  database_dialect,
+  DATABASE_NAME,
+  DATABASE_USER,
+  DATABASE_PASSWORD,
+  DATABASE_HOST,
+  DATABASE_DIALECT,
 } = require("../config");
 
-const db = new Sequelize(database_name, database_user, database_password, {
-  host: database_host,
-  dialect: database_dialect,
+const db = new Sequelize(DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, {
+  host: DATABASE_HOST,
+  dialect: DATABASE_DIALECT,
   logging: false,
 });
 

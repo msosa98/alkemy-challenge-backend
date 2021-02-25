@@ -1,62 +1,59 @@
 const { createContainer, asValue, asFunction, asClass } = require("awilix");
 
+// config
+const config = require("../config");
+
+// server
+const server = require("../server");
+
+// routes
+const { Router, AuthRoutes, OperationRoutes } = require("../routes");
+
+// controllers
+const { AuthController, OperationController } = require("../controllers");
+
+// services
+const { UserService, AuthService, OperationService } = require("../services");
+
+// repositories
+const { UserRepository, OperationRepository } = require("../repositories");
+
+// models
+const { UserModel, OperationModel } = require("../models");
+
+// container
 const container = createContainer();
 
-// ================
-// Config & Server
-// ================
-const server = require("../server");
-const config = require("../config");
 container.register({
   server: asClass(server).singleton(),
-  config: asValue(config)
+  config: asValue(config),
 });
 
-// ================
-// Routes
-// ================
-const { Router, AuthRoutes, CategoryRoutes } = require("../routes");
 container.register({
   router: asFunction(Router),
   AuthRoutes: asFunction(AuthRoutes),
-  CategoryRoutes: asFunction(CategoryRoutes),
+  OperationRoutes: asFunction(OperationRoutes),
 });
 
-// ================
-// Controllers
-// ================
-const { AuthController, CategoryController } = require("../controllers");
 container.register({
   AuthController: asClass(AuthController).singleton(),
-  CategoryController: asClass(CategoryController).singleton(),
+  OperationController: asClass(OperationController).singleton(),
 });
 
-// ================
-// Services
-// ================
-const { UserService, AuthService, CategoryService } = require("../services");
 container.register({
   AuthService: asClass(AuthService).singleton(),
   UserService: asClass(UserService).singleton(),
-  CategoryService: asClass(CategoryService).singleton(),
+  OperationService: asClass(OperationService).singleton(),
 });
 
-// ================
-// Repositories
-// ================
-const { UserRepository, CategoryRepository } = require("../repositories");
 container.register({
   UserRepository: asClass(UserRepository).singleton(),
-  CategoryRepository: asClass(CategoryRepository).singleton(),
+  OperationRepository: asClass(OperationRepository).singleton(),
 });
 
-// ================
-// Models
-// ================
-const { UserModel, CategoryModel } = require("../models");
 container.register({
   UserModel: asValue(UserModel),
-  CategoryModel: asValue(CategoryModel),
+  OperationModel: asValue(OperationModel),
 });
 
 module.exports = container;

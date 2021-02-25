@@ -1,13 +1,14 @@
 const { Router } = require("express");
+const { verifyToken } = require("../middlewares");
 
 module.exports = ({ OperationController }) => {
   const router = Router();
 
-  router.post("/api/operations", OperationController.createOperation);
-  router.delete("/api/operations/:id", OperationController.deleteOperation);
-  router.put("/api/operations/:id", OperationController.updateOperation);
-  router.get("/api/operations/type/:id", OperationController.getOperationsByType);
-  router.get("/api/operations/user/:id", OperationController.getOperationsByUserId);
+  router.post("/api/operations", verifyToken, OperationController.createOperation);
+  router.delete("/api/operations/:id", verifyToken, OperationController.deleteOperation);
+  router.put("/api/operations/:id", verifyToken, OperationController.updateOperation);
+  router.get("/api/operations/type/:id", verifyToken, OperationController.getOperationsByType);
+  router.get("/api/operations/user/:id", verifyToken, OperationController.getOperationsByUserId);
   
   return router;
 };

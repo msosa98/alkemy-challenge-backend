@@ -30,7 +30,7 @@ class AuthService {
     if (userExists) return httpError(400, "The email already exists");
 
     user.password = encryptPassword(user.password);
-    const createdUser = await this.userService.create(user);
+    const createdUser = await this.userService.createUser(user);
 
     return { user: createdUser };
   }

@@ -20,9 +20,10 @@ class OperationController {
   async createOperation(req, res) {
     try {
       const operation = req.body;
-      const createdOperation = await _operationService.create(operation);
+      const createdOperation = await _operationService.createOperation(operation);
       res.status(201).send(createdOperation);
     } catch (e) {
+      console.log(e);
       res.status(e.status).json({
         error: e.message,
       });
@@ -32,7 +33,7 @@ class OperationController {
   async deleteOperation(req, res) {
     try {
       const operationID = req.params.id;
-      const deletedOperation = await _operationService.delete(operationID);
+      const deletedOperation = await _operationService.deleteOperation(operationID);
       res.status(200).send(deletedOperation);
     } catch (e) {
       res.status(e.status).json({
@@ -45,7 +46,7 @@ class OperationController {
     try {
       const operationID = req.params.id;
       const newOperation = req.body;
-      const updatedOperation  = await _operationService.update(operationID, newOperation);
+      const updatedOperation  = await _operationService.updateOperation(operationID, newOperation);
       res.status(200).send(updatedOperation);
     } catch (e) {
       res.status(e.status).json({

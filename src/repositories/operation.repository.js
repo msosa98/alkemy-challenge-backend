@@ -18,7 +18,7 @@ class OperationRepository {
 
   async updateOperation(operationID, operation) {
     const operationDB = await this.operationModel.findByPk(operationID);
-    return await operationDB.update(operation);
+    return operationDB.update(operation);
   }
 }
 

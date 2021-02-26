@@ -17,7 +17,7 @@ class UserRepository {
 
   async updateUser(userID, user) {
     const userDB = await this.userModel.findByPk(userID);
-    return await userDB.update(user);
+    return userDB.update(user);
   }
 }
 

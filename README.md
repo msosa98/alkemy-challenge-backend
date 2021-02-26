@@ -1,5 +1,9 @@
 # Alkemy Challenge - Backend
 
+[Challenge documentation](./docs/challenge-js.pdf)
+
+<br>
+
 ## Features
 * API RESTful
 * 3 Layers Architecture

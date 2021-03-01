@@ -8,18 +8,7 @@ class OperationService {
     return this.operationRepository.getOperationsByUserId(userID);
   }
 
-  async createOperation(operation) {
-    const { amount, typeID, userID } = operation;
-    const user = await this.userService.getUserById(userID);
-
-    if (typeID === 1) {
-      const newUser = { ...user, balance: parseInt(user.balance) + amount };
-      await this.userService.updateUser(userID, newUser);
-    } else {
-      const newUser = { ...user, balance: parseInt(user.balance) - amount };
-      await this.userService.updateUser(userID, newUser);
-    }
-
+  createOperation(operation) {
     return this.operationRepository.createOperation(operation);
   }
 
@@ -29,6 +18,10 @@ class OperationService {
 
   updateOperation(operationID, operation) {
     return this.operationRepository.updateOperation(operationID, operation);
+  }
+
+  getBalanceByUserId(userID) {
+    return this.operationRepository.getBalanceByUserId(userID);
   }
 }
 

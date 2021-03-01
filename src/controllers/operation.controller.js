@@ -49,6 +49,19 @@ class OperationController {
       const updatedOperation  = await _operationService.updateOperation(operationID, newOperation);
       res.status(200).send(updatedOperation);
     } catch (e) {
+      console.log(e);
+      res.status(e.status).json({
+        error: e.message,
+      });
+    }
+  }
+
+  async getBalanceByUserId(req, res) {
+    try {
+      const userID = req.params.id;
+      const balance = await _operationService.getBalanceByUserId(userID);
+      res.status(200).json({ balance });
+    } catch(e) {
       res.status(e.status).json({
         error: e.message,
       });

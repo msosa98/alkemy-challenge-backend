@@ -8,6 +8,7 @@ module.exports = ({ OperationController }) => {
   router.delete("/api/operations/:id", verifyToken, OperationController.deleteOperation);
   router.put("/api/operations/:id", verifyToken, OperationController.updateOperation);
   router.get("/api/operations/user/:id", verifyToken, OperationController.getOperationsByUserId);
+  router.get("/api/operations/balance/:id", verifyToken, OperationController.getBalanceByUserId);
   
   return router;
 };

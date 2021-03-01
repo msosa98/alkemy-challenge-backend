@@ -27,11 +27,6 @@ const UserModel = db.define(
       type: DataTypes.STRING(60),
       allowNull: false,
     },
-    balance: {
-      type: DataTypes.DECIMAL,
-      defaultValue: 0,
-      allowNull: false,
-    },
   },
   {
     timestamps: false,

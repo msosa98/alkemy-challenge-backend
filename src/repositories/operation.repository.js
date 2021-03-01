@@ -20,6 +20,12 @@ class OperationRepository {
     const operationDB = await this.operationModel.findByPk(operationID);
     return operationDB.update(operation);
   }
+
+  async getBalanceByUserId(userID) {
+    const entry = await this.operationModel.sum('amount',{ where: { userID: userID, typeID: 1 } });
+    const egress = await this.operationModel.sum('amount',{ where: { userID: userID, typeID: 2 } });
+    return entry - egress;
+  }
 }
 
 module.exports = OperationRepository;

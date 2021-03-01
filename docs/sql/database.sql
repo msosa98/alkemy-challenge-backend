@@ -7,8 +7,7 @@ CREATE TABLE Users (
   firstname VARCHAR(25) NOT NULL,
   lastname VARCHAR(25) NOT NULL,
   email VARCHAR(50) UNIQUE NOT NULL,
-  password VARCHAR(60) NOT NULL,
-  balance DECIMAL NOT NULL DEFAULT 0
+  password VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE Types (

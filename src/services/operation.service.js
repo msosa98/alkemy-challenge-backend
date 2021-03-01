@@ -1,5 +1,5 @@
 class OperationService {
-  constructor({ OperationRepository, UserService }) {
+  constructor({ OperationRepository }) {
     this.operationRepository = OperationRepository;
   }
 

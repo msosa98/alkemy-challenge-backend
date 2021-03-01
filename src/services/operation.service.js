@@ -1,7 +1,6 @@
 class OperationService {
   constructor({ OperationRepository, UserService }) {
     this.operationRepository = OperationRepository;
-    this.userService = UserService;
   }
 
   getOperationsByUserId(userID) {
